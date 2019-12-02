@@ -1,0 +1,305 @@
+/****** css reset ******/
+*,div,p,ul{
+    padding:0px;
+    margin:0px;
+    }
+    body{
+    font-family:"b yekan";
+    background: #f1f1f1;
+    direction: rtl;
+    }
+    a,li{
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        color: #ecf0f1;
+        padding: 0px;
+        margin: 0;
+    }
+    li{
+        float: right;
+        list-style: none;
+    }
+    p{
+        color: #ecf0f1;
+    }
+    /*** menu ***/
+    .menu{
+        float: right;
+        width: 100%;
+        height: auto;
+        background: #434242;
+    }
+    .menu ul li a{
+        float: right;
+        padding: 10px 15px;
+    }
+    .menu ul li a:hover{
+        color: #f95858;
+    }
+    .menu ul li:hover ul{
+        display: block;
+    }
+    .menu li ul li a{
+        padding: 5px;
+    }
+    .menu li ul{
+        position: absolute;
+        margin: 35px 0;
+        background: #434242;
+        display: none;
+    }
+    .menu li ul li{
+        float: none;
+        margin: 0;
+    }
+    /** wellcomadmin **/
+    .wellcomadmin{
+        float: right;
+        width: 98%;
+        height: 50px;
+        background: #fff;
+        margin: 10px 1%;
+    }
+    .wellcomadmin p{
+        float: right;
+        margin: 10px;
+        color: #939393;
+    }
+    /*** lastpostbox **/
+    .lastpostbox{
+margin: 0 auto;
+        height: auto;
+        background: #fff;
+        padding: 10px 5px;
+    }
+    .lastpostTitle{
+       
+        width: 100%;
+        height: 50px;
+        margin: 20px 0 0;
+    }
+    .lastpostTitle p{
+        width: 30%;
+        padding: 12px 20px;
+        background: #414040;
+     
+    }
+    .lastpostbox ul li{
+        float: none;
+    }
+    .lastpostbox ul li a{
+        float: right;
+        color: #414040;
+        width: 94%;
+        background: #f0f0f0;
+        margin: 5px 1%;
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+    .lastpostbox ul li a:hover{
+        background: #f77373;
+        color: #fff;
+    }
+    
+    /** admin **/
+    .admin{
+        margin: 0 auto;
+
+     
+        background: #fff;
+        padding:10px 0;
+    }
+    .adminImg{
+        float: right;
+       
+        height: 250px;
+        margin: 10px 1%;
+    }
+    .adminImg img{
+        width: 100%;
+        height: 100%;
+    }
+    .adminPropertis{
+        float: right;
+      
+        height: 250px;
+        margin: 10px 1%;
+    }
+    .adminPropertis ul li{
+        float: none;
+        margin: 5px;
+    }
+    .adminPropertis ul li p{
+        color: #858585;
+    }
+    .mr{
+        margin:0 10px;
+    }
+
+/** sendpostBox **/
+.sendpostBox{
+	float: right;
+	width: 98%;
+	height: auto;
+	background: #fff;
+	margin: 10px 1%;
+}
+.sendpostBox label{
+	float: right;
+	margin: 10px 2%;
+}
+.sendpostBox input[type=text]{
+	float: right;
+	width: 96%;
+	height: 30px;
+	margin: 5px 2%;
+	border: 1px solid #dcdbdb;
+}
+.sendpostBox textarea{
+	float: right;
+	width: 96%;
+	height: 250px;
+	margin: 5px 2%;
+	border: 1px solid #dcdbdb;
+}
+.sendpostBox input[type=submit]{
+	float: right;
+	padding: 10px 20px;
+	margin: 5px 2% 5px 1%;
+	border: 1px solid #dcdbdb;
+	font-family: "b yekan";
+    cursor: pointer;
+    background-color: #28a745;
+    color:#fff;
+}
+.uploadlink{
+	float: right;
+	padding: 8px 20px;
+	background: #2e6ae4;
+	margin:5px 0;
+	border: 1px solid #094dd7;
+}
+/** managepostBox **/
+.managepostBox{
+	float: right;
+	width: 98%;
+	height: auto;
+	background: #fff;
+	margin: 10px 1%;	
+}
+.text-box{
+	float: right;
+	color: #414040;
+	width: 50%;
+	background: #f0f0f0;
+	margin: 5px 1%;
+	padding: 5px 10px;
+	font-size: 13px;
+}
+.btn-edit:hover{
+    background: #e7ae04;
+    border-color: #e7ae04;
+}
+.btn-edit{
+    background-color: #ffc107;
+}
+.btn-remove:hover{
+   
+    background: #c82333;
+    border-color: #bd2130;
+	
+}
+.btn-remove{
+    background-color: #dc3545;
+}
+.btn-remove,.btn-edit{
+    float: right;
+	color: rgb(34, 32, 32);
+    width: 50%;
+    margin: 5px 1%;
+	padding: 5px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+/** settBox **/
+.settBox{
+	float: right;
+	width: 98%;
+	height: auto;
+	background: #fff;
+	margin: 10px 1%;
+}
+.settBox label{
+	float: right;
+	margin: 10px 2%;
+}
+.settBox input[type=text]{
+	float: right;
+	width: 96%;
+	height: 30px;
+	border: 1px solid #dcdbdb;
+	margin: 5px 2%;
+}
+.settBox textarea{
+	float: right;
+	width: 96%;
+	height: 150px;
+	border: 1px solid #dcdbdb;
+	margin: 5px 2%;
+}
+.settBox input[type=submit]{
+	float: right;
+	padding: 5px 20px;
+	border: 1px solid #28a745;
+	margin: 5px 2%;
+	font-family: "b yekan";
+    cursor: pointer;
+    background-color: #28a745;
+}
+
+    /******responsive******/
+    @media screen and (max-width:575px) {
+        .lastpostTitle p{
+            width: 100%;
+            padding: 12px 20px;
+            background: #414040;
+         
+        }
+        .lastpostTitle{
+       
+            width: 100%;
+            height: auto;
+            margin: 20px 0 0;
+        }
+    }
+    @media screen and (min-width:576px) and (max-width:767.98px) {
+        .lastpostTitle p{
+            width: 100%;
+            padding: 12px 20px;
+            background: #414040;
+         
+        }
+        .lastpostTitle{
+       
+            width: 100%;
+            height: auto;
+            margin: 20px 0 0;
+        }
+    }
+    @media screen and (min-width:768px) and (max-width:991.98px) {
+        .lastpostTitle p{
+            width: 100%;
+            padding: 12px 20px;
+            background: #414040;
+         
+        }
+        .lastpostTitle{
+       
+            width: 100%;
+            height: auto;
+            margin: 20px 0 0;
+        }
+    }
+    @media screen and (min-width:992px) and (max-width:1199.98px) {}
+    @media screen and (min-width:1200px) {}

@@ -8,7 +8,15 @@
 <body>
 <div class="loginbox ">
 	<p>صفحه ورود</p>
-		<form >
+    <?php
+	if (isset($_GET["empty"])) {
+		echo "<center><font color=red>تمام فیلد ها باید پر باشند</font></center>";
+	}
+	if (isset($_GET["error"])) {
+		echo "<center><font color=red>نام کاربری یا پسورد نادرست می باشد</font></center>";
+	}
+	?>
+		<form method="post" action="check.php">
 			<label>نام کاربردی</label>
 			<input type="text" name="username" placeholder="نام کاربری">
 			<label>رمز عبور</label>

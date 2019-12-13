@@ -1,8 +1,7 @@
 ﻿<?php include ("header.php"); ?>
 <?php include ("slider.php"); ?>
 <?php include ("specialPost.php"); ?>
-
-    
+<?php include ("config.php"); ?> 
 
 
 

@@ -1,5 +1,10 @@
 <?php include("menu.php"); ?>
-
+<?php
+if (!isset($_COOKIE["admin"])) {
+	header("location:../index.php");
+	exit;
+}
+?>
 	<div class="settBox">
 		<div class="lastpostTitle">
 			<p>تنظیمات پست های ویژه-شماره1</p>

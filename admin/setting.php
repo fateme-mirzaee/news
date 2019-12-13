@@ -1,4 +1,10 @@
 <?php include("menu.php"); ?>
+<?php
+if (!isset($_COOKIE["admin"])) {
+	header("location:../index.php");
+	exit;
+}
+?>
 
 	<div class="settBox">
 		<div class="lastpostTitle">
@@ -10,32 +16,6 @@
 				<label>عنوان عکس</label>
 				<input type="text" name="slidertitle">
 				<input type="submit" name="sliderbtn" value="ارسال اطلاعات">
-			</form>
-	</div><!-- settBox -->
-
-	<div class="settBox">
-		<div class="lastpostTitle">
-			<p>تنظیمات تبلیغات پایینی</p>
-		</div><!-- lastpostTitle -->
-			<form>
-				<label>آدرس عکس</label>
-				<input type="text" name="adsimg">
-				<label>لینک عکس</label>
-				<input type="text" name="adslink">
-				<input type="submit" name="bottonAdsbtn" value="ارسال اطلاعات">
-			</form>
-	</div><!-- settBox -->
-
-	<div class="settBox">
-		<div class="lastpostTitle">
-			<p>تنظیمات تبلیغات بالایی</p>
-		</div><!-- lastpostTitle -->
-			<form>
-				<label>آدرس عکس</label>
-				<input type="text" name="adsimg">
-				<label>لینک عکس</label>
-				<input type="text" name="adslink">
-				<input type="submit" name="topadsbtn" value="ارسال اطلاعات">
 			</form>
 	</div><!-- settBox -->
 
@@ -54,7 +34,7 @@
 
 	<div class="settBox">
 		<div class="lastpostTitle">
-			<p>تنظیمات تبلیغات پایینی</p>
+			<p>تنظیمات منوی پایینی</p>
 		</div><!-- lastpostTitle -->
 			<form>
 				<label>عنوان</label>

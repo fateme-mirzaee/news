@@ -1,5 +1,10 @@
 <?php include("menu.php"); ?>
-
+<?php
+if (!isset($_COOKIE["admin"])) {
+	header("location:../index.php");
+	exit;
+}
+?>
 <div class="sendpostBox">
 	<div class="lastpostTitle">
 			<p>ارسال پست</p>

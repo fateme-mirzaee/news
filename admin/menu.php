@@ -1,3 +1,9 @@
+<?php
+if (!isset($_COOKIE["admin"])) {
+	header("location:../index.php");
+	exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,20 +18,15 @@
 <body>
 <div class="menu">
 	<ul>
-		<li><a href="#">صفحه اصلی</a></li>
-		<li><a href="#">مدیریت پست های ویژه</a></li>
+		<li><a href="../index.php">صفحه اصلی</a></li>
+		<li><a href="specialpostmanage.php">مدیریت پست های ویژه</a></li>
 		<li><a href="#">مدیریت پست</a>
 			<ul>
 				<li><a href="sendpost.php">ارسال پست جدید</a></li>
 				<li><a href="postmanage.php">مدیریت پست های قبلی</a></li>
 			</ul>
 		</li>
-		<li><a href="#">تنظیمات</a>
-			<ul>
-				<li><a href="#">تنظیمات اسلایدر</a></li>	
-				<li><a href="#">تنظیمات منوی بالایی</a></li>
-				<li><a href="#">تنظیمات منوی پایینی</a></li>
-			</ul>
-		</li>
+		<li><a href="setting.php">تنظیمات</a></li>
+        <li><a href=<?php echo "../check.php?exit=3050" ?>>خروج</a></li>
 	</ul>
 </div><!-- menu -->

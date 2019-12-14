@@ -303,3 +303,77 @@ margin: 0 auto;
     }
     @media screen and (min-width:992px) and (max-width:1199.98px) {}
     @media screen and (min-width:1200px) {}
+	/** uploadBox **/
+.uploadBox{
+	float: right;
+	margin: 10px 30%;
+	background: #34495e;
+	height: 70px;
+	width: 500px;
+	border-radius: 5px;
+}
+.uploadBox input[type=submit]{
+	float: left;
+	height: 70px;
+	width: 100px;
+	border: none;
+	background: #2c3e50;
+	cursor: pointer;
+	color: #fff;
+	font-family: "b yekan";
+	font-size: 18px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.uploadBox label{
+	color: #fff;
+	font-family: "b yekan";
+	font-size: 18px;
+	float: right;
+	padding: 21.5px;
+	background: #e74c3c;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.uploadBox input[type=file]{
+	float: right;
+	border: none;
+	padding: 20.5px 2px;
+	cursor: pointer;
+	color: #fff;
+	font-family: "b yekan";
+}
+/** uploadBigbox **/
+.uploadBigbox{
+	float: right;
+	 margin: 20px 30%;
+	 background: #34495e;
+	 width: 500px;
+	 min-height: 150px;
+	 height: auto;
+	 color: #fff;
+}
+.uploadBigbox p{
+	float: right;
+	width: 96%;
+	margin: 5px 2%;
+	font-size: 13px;
+	background: #2c3e50;
+	padding: 5px 0;
+}
+.uploadBigbox p:hover{
+	background: #e74c3c;
+}
+.uploadBigbox a{
+	float: right;
+	width: 96%;
+	margin: 2px 2% 10px;
+	font-size: 13px;
+	background: #2c3e50;
+	padding: 5px 0;
+}
+.uploadBigbox a:hover{
+	background: #e74c3c;
+	padding: 5px 10px;
+	width: 92%;
+}

@@ -1,4 +1,5 @@
 <?php
+include("config.php");
 #---- ADMIN LOGIN
 if (isset($_POST["btnlogin"])) 
 {
@@ -25,5 +26,36 @@ if (isset($_GET["exit"])) {
 	header("location:index.php");
 	exit;
 }
+#----- Send Post
+require('config.php');
+if(isset($_POST["sendpostbtn"]))
+{
+	if (empty($_POST["title"]) ||
+		empty($_POST["thumb"]) ||
+		empty($_POST["content"])) 
+	{
+		header("location:admin/sendpost.php?empty=1010");
+		exit;
+	}
+	else
+	{
+		$posttitle=$_POST["title"];
+		$postthumb=$_POST["thumb"];
+		$postcontent=$_POST["content"];
+		$sendpostsql="INSERT INTO `post` (`id` ,`title` ,`src` ,`content`)VALUES(NULL , '".$posttitle."', '".$postthumb."', '".$postcontent."');";
+		$sendpostquery=mysqli_query($connect,$sendpostsql);
+		if ($sendpostquery) 
+		{
+			header("location:admin/sendpost.php?ok=1010");
+			exit;
+		}
+		else
+		{
+			header("location:admin/sendpost.php?error=1010");
+			exit;
+		}
+	}
+}
+
 
 ?>

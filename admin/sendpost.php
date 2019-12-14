@@ -9,8 +9,22 @@ if (!isset($_COOKIE["admin"])) {
 	<div class="lastpostTitle">
 			<p>ارسال پست</p>
 		</div><!-- lastpostTitle -->
+        <?php
+if (isset($_GET["empty"])) 
+{
+	echo "<center><font color=red>تمام فیلد ها باید ‍پر باشد</font></center>";
+}
+if (isset($_GET["error"])) 
+{
+	echo "<center><font color=red>مشکل در ارسال اطلاعات</font></center>";
+}
+if (isset($_GET["ok"])) 
+{
+	echo "<center><font color=green>ارسال اطلاعات با موفقیت انجام شد</font></center>";
+}
+?>
 
-		<form>
+		<form method="post" action="../check.php">
 			<label>عنوان</label>
 			<input type="text" name="title">
 			<label>آدرس تصویر شاخص</label>
@@ -19,7 +33,7 @@ if (!isset($_COOKIE["admin"])) {
 			<textarea name="content"></textarea>
 			<input type="submit" name="sendpostbtn" value="ارسال اطلاعات">
 		</form>
-			<a href="#" class="uploadlink">آپلود تصویر شاخص</a>
+			<a href="upload.php" class="uploadlink">آپلود تصویر شاخص</a>
 </div><!-- sendpostBox -->
 
 

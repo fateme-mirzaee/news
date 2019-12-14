@@ -1,6 +1,6 @@
 <?php include("menu.php"); ?>
 
-<div class="uploadBigbox">
+<div class="uploadBigbox" >
 
 
 
@@ -24,11 +24,11 @@
 			{
 				if(move_uploaded_file($filetmp, $filename))
 				{
-					echo "فایل با موفقیت آپلود شد"."<br/>";
-					echo "نام فایل : ".$filename.""."<br/>";
-					echo "سایز فایل : ".$filesize.""."<br/>";
-					echo "نوع فایل : ".$filetype.""."<br/>";
-					echo 'ادرس فایل:'.$filename;
+					echo "<p>فایل با موفقیت آپلود شد</p>"."<br/>";
+					echo "<p>نام فایل : ".$filename."</p>"."<br/>";
+					echo "<p>سایز فایل : ".$filesize."</p>"."<br/>";
+					echo "<p>نوع فایل : ".$filetype."</p>"."<br/>";
+					echo '<a href="'.$filename.'">ادرس فایل </a>';
 					
 				}
 			}

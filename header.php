@@ -23,10 +23,9 @@
     <div class="menu">
       
             <ul class="nav justify-content-center">
-                <li class="nav-item active"><a href="#" class="nav-link">خانه</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">تبلیغات</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">درباره ما</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">تماس با ما</a></li>
+                <li class="nav-item active"><a href="index.php" class="nav-link">خانه</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.php">درباره ما</a></li>
+                <li class="nav-item"><a class="nav-link" href="contactus.php">تماس با ما</a></li>
             </ul>
         
     </div><!-- menu -->

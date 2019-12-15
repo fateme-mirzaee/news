@@ -15,7 +15,7 @@
 		else
 		{
 			
-			$filename="../thumb/".$_FILES["file"]["name"];
+			$filename="../"."thumb/".$_FILES["file"]["name"];
 			$filesize=floor($_FILES["file"]["size"]/1024)." کیلوبایت";
 			$filetype=$_FILES["file"]["type"];
 			$filetmp=$_FILES["file"]["tmp_name"];
@@ -28,7 +28,8 @@
 					echo "<p>نام فایل : ".$filename."</p>"."<br/>";
 					echo "<p>سایز فایل : ".$filesize."</p>"."<br/>";
 					echo "<p>نوع فایل : ".$filetype."</p>"."<br/>";
-					echo '<a href="'.$filename.'">ادرس فایل </a>';
+					echo "<p>آدرس فایل: ".$filename."</p>"."<br/>";
+					
 					
 				}
 			}

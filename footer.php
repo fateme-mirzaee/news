@@ -2,10 +2,9 @@
     <div class="footer container-fluid"> 
         <div class="footermnu">  
             <ul>
-                <li><a href="#">خانه</a></li>
-                <li><a href="#">تبلیغات</a></li>
-                <li><a href="#">درباره ما</a></li>
-                <li><a href="#">تماس با ما</a></li>   
+                <li><a href="index.php">خانه</a></li>
+                <li><a href="aboutus.php">درباره ما</a></li>
+                <li><a href="contactus.php">تماس با ما</a></li>   
             </ul> 
         </div><!-- footermnu -->
         <div class="socialpage">

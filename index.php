@@ -2,47 +2,37 @@
 <?php include ("slider.php"); ?>
 <?php include ("specialPost.php"); ?>
 <?php include ("config.php"); ?> 
+<?php include ("func/func.php"); ?> 
+<?php
+$posrsql="SELECT * FROM  `post` ORDER BY  `id` DESC ;";
+$postquery=mysqli_query($connect,$posrsql);
+while($postfetch=mysqli_fetch_assoc($postquery))
+{
+?> 
 
 
-
-    
 <div class="big-post container-fluid">
     <div class="big-content col-md-12 row ">
         <div class="big-content-thumb col-md-3">
-            <img src="images/post1.jpg">
+            <img src=<?php echo $postfetch["src"]; ?>>
         </div><!-- big-content-thumb -->
         <div class="text-big col-md-9">
                 <div class="big-content-title ">
-                    <h4>بهترین انتخاب شما</h4>
+                    <h4><?php echo $postfetch["title"]; ?>  </h4>
                 </div><!-- big-content-title -->
     
                 <div class="big-content-txt">
-                    <p> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </p>
+                    <p> <?php echo post_content($postfetch["content"]); ?> </p>
                 </div><!-- big-content-txt -->
                 <div class="big-content-footer">
-                    <a href="readmore.html">ادامه مطلب...</a>
+                    <a href=<?php echo "readmore.php?postid=$postfetch[id]" ?>>ادامه مطلب...</a>
                 </div><!-- big-content-footer -->
             </div>
     </div><!-- big-content -->
-    <div class="big-content col-md-12 row ">
-            <div class="big-content-thumb col-md-3">
-                <img src="images/post1.jpg">
-            </div><!-- big-content-thumb -->
-            <div class="text-big col-md-9">
-                <div class="big-content-title ">
-                    <h4>بهترین انتخاب شما</h4>
-                </div><!-- big-content-title -->
+<?php
+}
+?>
     
-                <div class="big-content-txt">
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </p>
-                </div><!-- big-content-txt -->
-                <div class="big-content-footer">
-                    <a href="readmore.html" >ادامه مطلب...</a>
-                </div><!-- big-content-footer -->
-            </div>
-        </div><!-- big-content -->
-
-</div>
 <?php include ("footer.php"); ?>
 <script>
 var slideIndex = 0;

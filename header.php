@@ -23,9 +23,17 @@
     <div class="menu">
       
             <ul class="nav justify-content-center">
-                <li class="nav-item active"><a href="index.php" class="nav-link">خانه</a></li>
-                <li class="nav-item"><a class="nav-link" href="aboutus.php">درباره ما</a></li>
-                <li class="nav-item"><a class="nav-link" href="contactus.php">تماس با ما</a></li>
+            <?php
+			 include ("config.php");
+			 $mnu="SELECT * FROM  `menu` ORDER BY  `id` DESC ;";
+			 $mnuresult=mysqli_query($connect,$mnu);
+			 while($mnufetch=mysqli_fetch_assoc($mnuresult))
+			 {
+			?>
+                <li class="nav-item active"><a href=<?php echo $mnufetch["link"] ?> class="nav-link"><?php echo $mnufetch["title"] ?></a></li>
+                <?php
+			 }
+				?>
             </ul>
         
     </div><!-- menu -->

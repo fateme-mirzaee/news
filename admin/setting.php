@@ -23,7 +23,21 @@ if (!isset($_COOKIE["admin"])) {
 		<div class="lastpostTitle">
 			<p>تنظیمات منوی بالایی</p>
 		</div><!-- lastpostTitle -->
-			<form>
+        <?php
+		if (isset($_GET["emptytopmnu"]))
+		{
+			echo "<center><font color=red>تمام فیلدها باید پر باشد</font></center>";
+		}
+		if (isset($_GET["oktopmnu"]))
+		{
+			echo "<center><font color=green>اطلاعات با موفقیت ارسال شد</font></center>";
+		}
+		if (isset($_GET["errortopmnu"]))
+		{
+			echo "<center><font color=red>مشکل در ارسال اطلاعات</font></center>";
+		}
+		?>
+			<form method="post" action="../check.php">
 				<label>عنوان</label>
 				<input type="text" name="topmnutitle">
 				<label>لینک</label>

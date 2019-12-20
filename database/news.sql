@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2019 at 05:02 PM
+-- Generation Time: Dec 20, 2019 at 08:41 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -45,6 +45,14 @@ CREATE TABLE `menu` (
   `title` varchar(100) COLLATE utf8_persian_ci NOT NULL,
   `link` varchar(200) COLLATE utf8_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`id`, `title`, `link`) VALUES
+(6, 'ورود', 'http://localhost/pro/login.php'),
+(7, 'خانه', 'http://localhost/pro/index.php');
 
 -- --------------------------------------------------------
 
@@ -141,7 +149,7 @@ ALTER TABLE `bottemmenu`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `post`

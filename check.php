@@ -102,6 +102,24 @@ if(isset($_POST["sendpostbtn"]))
 	
 	}
 	}
-
+#---- TOP MENU
+	if (isset($_POST["topmnubtn"]))
+	{
+		if (empty($_POST["topmnutitle"])||empty($_POST["topmnulink"]))
+		{
+			header("location:admin/setting.php?emptytopmnu=15859");
+			exit;
+		}
+		$mnu="INSERT INTO `menu` (`id`, `title`, `link`) VALUES (NULL, '".$_POST["topmnutitle"]."', '".$_POST["topmnulink"]."'); ";
+		$mnuresult=mysqli_query($connect,$mnu);
+		if($mnuresult)
+		{
+			header("location:admin/setting.php?oktopmnu=15859");
+		}
+		else
+		{
+			header("location:admin/setting.php?errortopmnu=15859");
+		}
+	}
 
 ?>

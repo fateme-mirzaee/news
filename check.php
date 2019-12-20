@@ -56,6 +56,52 @@ if(isset($_POST["sendpostbtn"]))
 		}
 	}
 }
+#------ POST DELETE
+	if (isset($_GET["postid"]))
+	{
+	$postdelid=$_GET["postid"];
+	$postdel="DELETE FROM `post` WHERE `post`.`id` = $postdelid";
+	$postdelquery=mysqli_query($connect,$postdel);
+	if ($postdelquery)
+	{
+		header("location:admin/postmanage.php?okdel=1010");
+		exit;
+	}
+	else
+	{
+		header("location:admin/postmanage.php?nodel=1010");
+		exit;
+	}
+			
+	}
+#-------- Post Update
+	if (isset($_POST["updatepostbtn"]))
+	{
+		if (empty($_POST["title"]) ||
+		empty($_POST["thumb"]) ||
+		empty($_POST["content"])) 
+	{
+		header("location:admin/postmanage.php?empty=1010");
+		exit;
+	}
+	else
+	{
+	$updatepost=$_POST["updatepostid"];
+	$updatepost="UPDATE `post` SET `title` = '".$_POST["title"]."', `src` = '".$_POST["thumb"]."', `content` = '".$_POST["content"]."' WHERE `post`.`id` = $updatepost;";	
+	$updatepostresult=mysqli_query($connect,$updatepost);
+	if ($updatepostresult)
+	{
+	header("location:admin/postmanage.php?okupdate=1050");
+	exit;
+	}
+	else
+	{
+	header("location:admin/postmanage.php?noupdate=1050");
+	exit;
+	}
+	
+	}
+	}
 
 
 ?>

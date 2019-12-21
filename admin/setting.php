@@ -9,14 +9,29 @@ if (!isset($_COOKIE["admin"])) {
 	<div class="settBox">
 		<div class="lastpostTitle">
 			<p>تنظیمات اسلایدر</p>
+             <?php
+		if (isset($_GET["emptyslider"]))
+		{
+			echo "<center><font color=red>تمام فیلدها باید پر باشد</font></center>";
+		}
+		if (isset($_GET["okslider"]))
+		{
+			echo "<center><font color=green>اطلاعات با موفقیت ارسال شد</font></center>";
+		}
+		if (isset($_GET["errorslider"]))
+		{
+			echo "<center><font color=red>مشکل در ارسال اطلاعات</font></center>";
+		}
+		?>
 		</div><!-- lastpostTitle -->
-			<form>
+			<form method="post" action="../check.php">
 				<label>آدرس عکس</label>
 				<input type="text" name="sliderimg">
 				<label>عنوان عکس</label>
 				<input type="text" name="slidertitle">
 				<input type="submit" name="sliderbtn" value="ارسال اطلاعات">
 			</form>
+            <a href="upload.php" class="uploadlink">آپلود تصویر شاخص</a>
 	</div><!-- settBox -->
 
 	<div class="settBox">

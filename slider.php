@@ -4,23 +4,25 @@
     <div class="slideshow-container">
 
         <!-- Full-width images with number and caption text -->
+        <?php
+			 
+			 $slider="SELECT * FROM  `slider` ORDER BY  `id` DESC ;";
+			 $sliderresult=mysqli_query($connect,$slider);
+			 while($sliderfetch=mysqli_fetch_assoc($sliderresult))
+			 {
+			?>
+        
         <div class="mySlides fade">
         <div class="numbertext">1 / 3</div>
-        <img src="images/img/img_mountains_wide.jpg" style="width:100%">
-        <div class="text">Caption Text</div>
+        <img src=<?php echo $sliderfetch["src"] ?> style="width:100%">
+        <div class="text"><?php echo $sliderfetch["title"] ?></div>
         </div>
-    
-        <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="images/img/img_nature_wide.jpg" style="width:100%">
-        <div class="text">Caption Two</div>
-        </div>
-    
-        <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="images/img/img_snow_wide.jpg" style="width:100%">
-        <div class="text">Caption Three</div>
-        </div>
+        
+   		<?php
+			 }
+		?>
+        
+               
     
         <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

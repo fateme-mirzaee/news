@@ -115,11 +115,33 @@ if(isset($_POST["sendpostbtn"]))
 		if($mnuresult)
 		{
 			header("location:admin/setting.php?oktopmnu=15859");
+			exit;
 		}
 		else
 		{
 			header("location:admin/setting.php?errortopmnu=15859");
+			exit;
 		}
 	}
-
+#-------- SLIDER
+		if (isset($_POST["sliderbtn"]))
+	{
+		if (empty($_POST["sliderimg"])||empty($_POST["slidertitle"]))
+		{
+			header("location:admin/setting.php?emptyslider=15859");
+			exit;
+		}
+		$slider="INSERT INTO `slider` (`id`, `src`, `title`) VALUES (NULL, '".$_POST["sliderimg"]."', '".$_POST["slidertitle"]."'); ";
+		$sliderresult=mysqli_query($connect,$slider);
+		if($sliderresult)
+		{
+			header("location:admin/setting.php?okslider=15859");
+			exit;
+		}
+		else
+		{
+			header("location:admin/setting.php?errorslider=15859");
+			exit;
+		}
+	}
 ?>

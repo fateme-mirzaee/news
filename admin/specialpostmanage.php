@@ -7,47 +7,32 @@ if (!isset($_COOKIE["admin"])) {
 ?>
 	<div class="settBox">
 		<div class="lastpostTitle">
-			<p>تنظیمات پست های ویژه-شماره1</p>
+			<p>تنظیمات پست های ویژه</p>
+<?php
+if (isset($_GET["empty"])) 
+{
+	echo "<center><font color=red>تمام فیلد ها باید ‍پر باشد</font></center>";
+}
+if (isset($_GET["error"])) 
+{
+	echo "<center><font color=red>مشکل در ارسال اطلاعات</font></center>";
+}
+if (isset($_GET["ok"])) 
+{
+	echo "<center><font color=green>ارسال اطلاعات با موفقیت انجام شد</font></center>";
+}
+?>
 		</div><!-- lastpostTitle -->
-			<form>
-				<label>عنوان پست ویژه-شماره1</label>
-				<input type="text" name="specialpost1title">
-				<label>آدرس عکس پست ویژه-شماره1</label>
-				<input type="text" name="specialpost1img">
-				<label>متن پست ویژه-شماره1</label>
-				<textarea name="specialpost1content"></textarea>
-				<input type="submit" name="specialpost1btn" value="ارسال اطلاعات">
+			<form method="post" action="../check.php">
+				<label>عنوان پست ویژه</label>
+				<input type="text" name="specialposttitle">
+				<label>آدرس عکس پست ویژه</label>
+				<input type="text" name="specialpostimg">
+				<label>متن پست ویژه</label>
+				<textarea name="specialpostcontent"></textarea>
+				<input type="submit" name="specialpostbtn" value="ارسال اطلاعات">
 			</form>
-	</div><!-- settBox -->
-
-	<div class="settBox">
-		<div class="lastpostTitle">
-			<p>تنظیمات پست های ویژه-شماره2</p>
-		</div><!-- lastpostTitle -->
-			<form>
-				<label>عنوان پست ویژه-شماره2</label>
-				<input type="text" name="specialpost2title">
-				<label>آدرس عکس پست ویژه-شماره2</label>
-				<input type="text" name="specialpost2img">
-				<label>متن پست ویژه-شمار2</label>
-				<textarea name="specialpost2content"></textarea>
-				<input type="submit" name="specialpost2btn" value="ارسال اطلاعات">
-			</form>
-	</div><!-- settBox -->
-
-	<div class="settBox">
-		<div class="lastpostTitle">
-			<p>تنظیمات پست های ویژه-شماره3</p>
-		</div><!-- lastpostTitle -->
-			<form>
-				<label>عنوان پست ویژه-شماره3</label>
-				<input type="text" name="specialpost3title">
-				<label>آدرس عکس پست ویژه-شماره3</label>
-				<input type="text" name="specialpost3img">
-				<label>متن پست ویژه-شمار3</label>
-				<textarea name="specialpost3content"></textarea>
-				<input type="submit" name="specialpost3btn" value="ارسال اطلاعات">
-			</form>
+			<a href="upload.php" class="uploadlink">آپلود تصویر شاخص</a>
 	</div><!-- settBox -->
 
 </body>

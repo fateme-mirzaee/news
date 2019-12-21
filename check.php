@@ -144,4 +144,34 @@ if(isset($_POST["sendpostbtn"]))
 			exit;
 		}
 	}
+	#----- Send Special Post
+
+if(isset($_POST["specialpostbtn"]))
+{
+	if (empty($_POST["specialposttitle"]) ||
+		empty($_POST["specialpostimg"]) ||
+		empty($_POST["specialpostcontent"])) 
+	{
+		header("location:admin/specialpostmanage.php?empty=1010");
+		exit;
+	}
+	else
+	{
+		$specialposttitle=$_POST["specialposttitle"];
+		$specialpostthumb=$_POST["specialpostimg"];
+		$specialpostcontent=$_POST["specialpostcontent"];
+		$specialsendpostsql="INSERT INTO `specialpost` (`id` ,`title` ,`src` ,`content`)VALUES(NULL , '".$specialposttitle."', '".$specialpostthumb."', '".$specialpostcontent."');";
+		$specialsendpostquery=mysqli_query($connect,$specialsendpostsql);
+		if ($specialsendpostquery) 
+		{
+			header("location:admin/specialpostmanage.php?ok=1010");
+			exit;
+		}
+		else
+		{
+			header("location:admin/specialpostmanage.php?error=1010");
+			exit;
+		}
+	}
+}
 ?>

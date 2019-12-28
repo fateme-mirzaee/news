@@ -174,4 +174,62 @@ if(isset($_POST["specialpostbtn"]))
 		}
 	}
 }
+
+#------ Menu DELETE
+	if (isset($_GET["mnuid"]))
+	{
+	$postdelid=$_GET["mnuid"];
+	$mnu="DELETE FROM `menu` WHERE `menu`.`id` = $postdelid";
+	$mnuresult=mysqli_query($connect,$mnu);
+	if ($mnuresult)
+	{
+		header("location:admin/show.php?okdelmnu=1010");
+		exit;
+	}
+	else
+	{
+		header("location:admin/show.php?nodelmnu=1010");
+		exit;
+	}
+			
+	}
+	
+	#------ Slider DELETE
+	if (isset($_GET["sliderid"]))
+	{
+	$sliderdelid=$_GET["sliderid"];
+	$slider="DELETE FROM `slider` WHERE `slider`.`id` = $sliderdelid";
+	$sliderresult=mysqli_query($connect,$slider);
+	if ($sliderresult)
+	{
+		header("location:admin/show.php?okdelslider=1010");
+		exit;
+	}
+	else
+	{
+		header("location:admin/show.php?nodelslider=1010");
+		exit;
+	}
+			
+	}
+	
+	#------ specialpost DELETE
+	if (isset($_GET["specialpostid"]))
+	{
+	$specialpostdelid=$_GET["specialpostid"];
+	$specialpost="DELETE FROM `specialpost` WHERE `specialpost`.`id` = $specialpostdelid";
+	$specialpostresult=mysqli_query($connect,$specialpost);
+	if ($specialpostresult)
+	{
+		header("location:admin/show.php?okdelspecialpost=1010");
+		exit;
+	}
+	else
+	{
+		header("location:admin/show.php?nodelspecialpost=1010");
+		exit;
+	}
+			
+	}
+	
 ?>

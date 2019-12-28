@@ -1,5 +1,4 @@
 <?php include("menu.php"); ?>
-<?php include("../config.php");?>
 
 <div class="sendpostBox">
 	<div class="lastpostTitle">

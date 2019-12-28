@@ -30,3 +30,6 @@ if (!isset($_COOKIE["admin"])) {
         <li><a href=<?php echo "../check.php?exit=3050" ?>>خروج</a></li>
 	</ul>
 </div><!-- menu -->
+<?php
+include ("../config.php");
+?>

@@ -5,8 +5,6 @@ if (!isset($_COOKIE["admin"])) {
 	exit;
 }
 ?>
-
-<?php include ("../config.php"); ?> 
 <?php include ("../func/func.php"); ?>
 
 <div class="managepostBox">

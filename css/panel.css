@@ -257,6 +257,16 @@ margin: 0 auto;
     cursor: pointer;
     background-color: #28a745;
 }
+.settbox td
+{
+	color: #34495e;
+	padding: 5px;
+}
+.settbox a
+{
+	color: #34495e;
+	padding: 5px;
+}
 	/** uploadBox **/
 .uploadBox{
 	float: right;

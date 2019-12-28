@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2019 at 01:42 AM
+-- Generation Time: Dec 28, 2019 at 09:58 PM
 -- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `news`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `fname` varchar(100) COLLATE utf32_persian_ci NOT NULL,
+  `lname` varchar(100) COLLATE utf32_persian_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `img` varchar(200) COLLATE utf32_persian_ci NOT NULL,
+  `username` varchar(100) COLLATE utf32_persian_ci NOT NULL,
+  `password` varchar(100) COLLATE utf32_persian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_persian_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `fname`, `lname`, `age`, `img`, `username`, `password`) VALUES
+(1, 'زهرا', 'نیک انجام', 22, 'http://localhost/pro/thumb/images.jpeg', 'zahra', 'zahra123');
 
 -- --------------------------------------------------------
 
@@ -174,7 +197,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `slider`

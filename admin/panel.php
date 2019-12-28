@@ -7,7 +7,7 @@ if (!isset($_COOKIE["admin"])) {
 ?>
 
 	<div class="wellcomadmin">
-		<p>ادمین گرامی به پنل مدیریت وبسایت خوش آمدید</p>
+		<p><?php echo $_COOKIE["admin"]; ?> گرامی به پنل مدیریت وبسایت خوش آمدید</p>
 	</div><!-- wellcomadmin -->
 
 <div class="clearfix row container-fluid col-12 text-right">
@@ -17,14 +17,22 @@ if (!isset($_COOKIE["admin"])) {
 			<p>آخرین پست های وبسایت</p>
 		</div><!-- lastpostTitle -->
 			<ul>
-				<li><a href="#">لورم ایپسوم متن ساختگی با تولید  </a></li>
-				<li><a href="#">لورم ایپسوم متن ساختگی با تولید  </a></li>
-				<li><a href="#">لورم ایپسوم متن ساختگی با تولید  </a></li>
-				<li><a href="#">لورم ایپسوم متن ساختگی با تولید  </a></li>
-				<li><a href="#">لورم ایپسوم متن ساختگی با تولید  </a></li>
-				<li><a href="#">لورم ایپسوم متن ساختگی با تولید  </a></li>
-				<li><a href="#">لورم ایپسوم متن ساختگی با تولید  </a></li>
-				<li><a href="#">لورم ایپسوم متن ساختگی با تولید  </a></li>
+<?php
+$i=0;
+$post="SELECT * FROM  `post` ORDER BY  `id` DESC ;";
+$postresult=mysqli_query($connect,$post);
+while($postfetch=mysqli_fetch_assoc($postresult))
+{
+?>            
+				<li><a href=<?php echo "../readmore.php?postid=$postfetch[id]" ?>><?php echo $postfetch["title"]; ?></a></li>
+<?php
+		$i++;
+	if($i>=4)
+	{
+		break;
+	}
+			}
+		?>                
 			</ul>
 	
 	</div><!-- lastpostbox -->
@@ -34,18 +42,29 @@ if (!isset($_COOKIE["admin"])) {
 		<div class="lastpostTitle">
 			<p>اطلاعات مدیر وبسایت</p>
 		</div><!-- lastpostTitle -->
+        <?php
+		$adminid=$_GET["adminid"];
+		$admin="select * from admin where id=$adminid"; 
+		$adminresult=mysqli_query($connect,$admin);
+		if($adminresult)
+		{
+			$adminfetch=mysqli_fetch_assoc($adminresult);
+		?>
 		<div class="content row col-12">
 		<div class="adminImg col-md-12 col-sm-12 col-xl-5">
-			<img src="../images/panel.png">
+			<img src=<?php echo $adminfetch["img"]; ?>>
 		</div><!-- adminImg -->
 		<div class="adminPropertis col-md-12 col-sm-12 col-xl-6">
 			<ul>
-				<li><p>نام : زهرا</p></li>
-				<li><p>نام خانوادگی : نیک انجام</p></li>
-				<li><p>سن : 22 </p></li>
-				<li><p>نام کاربری : zahra</p></li>
+				<li><p>نام : <?php echo $adminfetch["fname"]; ?> </p></li>
+				<li><p>نام خانوادگی : <?php echo $adminfetch["lname"]; ?> </p></li>
+				<li><p>سن : <?php echo $adminfetch["age"]; ?> </p></li>
+				<li><p>نام کاربری : <?php echo $adminfetch["username"]; ?> </p></li>
 			
 			</ul>
+            <?php
+		}
+			?>
 		
 		</div><!-- adminPropertis -->
 	</div>

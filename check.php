@@ -8,9 +8,15 @@ if (isset($_POST["btnlogin"]))
 		header("location:login.php?empty=1010");
 		exit;
 	}
-	if ($_POST["username"]=="admin" && $_POST["password"]=="admin") {
-		setcookie("admin","مدیر وبسایت",time()+(86400*7));
-		header("location:admin/panel.php");
+	$useradmin=$_POST["username"];
+	$passadmin=$_POST["password"];
+	$admin="select * from admin where username='$useradmin' && password='$passadmin'";
+	$adminresult=mysqli_query($connect,$admin);
+	$adminfetch=mysqli_fetch_assoc($adminresult);
+	$adminrows=mysqli_num_rows($adminresult);
+	if ($adminrows>0) {
+		setcookie("admin",$adminfetch["fname"],time()+(86400*7));
+		header("location:admin/panel.php?adminid=".$adminfetch["id"]);
 		exit;
 	}
 	else 

@@ -27,6 +27,7 @@ if (!isset($_COOKIE["admin"])) {
 			</ul>
 		</li>
 		<li><a href="setting.php">تنظیمات</a></li>
+        <li><a href="show.php">مدیریت اجزا</a></li>
         <li><a href=<?php echo "../check.php?exit=3050" ?>>خروج</a></li>
 	</ul>
 </div><!-- menu -->

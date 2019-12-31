@@ -21,7 +21,7 @@ if (isset($_POST["btnlogin"]))
 	}
 	else 
 	{
-		header("location:login.php?error=2020");
+		header("location:login.php?error=".$passadmin);
 		exit;
 	}
 }
@@ -32,35 +32,35 @@ if (isset($_GET["exit"])) {
 	header("location:index.php");
 	exit;
 }
-#----- Send Post
+#----- Send Post-------sendpostbtn
 require('config.php');
-if(isset($_POST["sendpostbtn"]))
+if(isset($_POST["sendpostbtn"]) && $_POST["vehicle"] == "post")
 {
 	if (empty($_POST["title"]) ||
-		empty($_POST["thumb"]) ||
-		empty($_POST["content"])) 
+	    empty($_POST["thumb"]) ||
+	    empty($_POST["content"])) 
+{
+	header("location:admin/sendpost.php?empty=1010");
+	exit;
+}
+else
+{
+	$posttitle=$_POST["title"];
+	$postthumb=$_POST["thumb"];
+	$postcontent=$_POST["content"];
+	$sendpostsql="INSERT INTO `post` (`id` ,`title` ,`src` ,`content`)VALUES(NULL , '".$posttitle."', '".$postthumb."', '".$postcontent."');";
+	$sendpostquery=mysqli_query($connect,$sendpostsql);
+	if ($sendpostquery) 
 	{
-		header("location:admin/sendpost.php?empty=1010");
+		header("location:admin/sendpost.php?ok=1010");
 		exit;
 	}
 	else
 	{
-		$posttitle=$_POST["title"];
-		$postthumb=$_POST["thumb"];
-		$postcontent=$_POST["content"];
-		$sendpostsql="INSERT INTO `post` (`id` ,`title` ,`src` ,`content`)VALUES(NULL , '".$posttitle."', '".$postthumb."', '".$postcontent."');";
-		$sendpostquery=mysqli_query($connect,$sendpostsql);
-		if ($sendpostquery) 
-		{
-			header("location:admin/sendpost.php?ok=1010");
-			exit;
-		}
-		else
-		{
-			header("location:admin/sendpost.php?error=1010");
-			exit;
-		}
+		header("location:admin/sendpost.php?error=1010");
+		exit;
 	}
+}
 }
 #------ POST DELETE
 	if (isset($_GET["postid"]))
@@ -152,30 +152,30 @@ if(isset($_POST["sendpostbtn"]))
 	}
 	#----- Send Special Post
 
-if(isset($_POST["specialpostbtn"]))
+if(isset($_POST["sendpostbtn"]) && $_POST["vehicle"] == "specialpost")
 {
-	if (empty($_POST["specialposttitle"]) ||
-		empty($_POST["specialpostimg"]) ||
-		empty($_POST["specialpostcontent"])) 
+	if (empty($_POST["title"]) ||
+		empty($_POST["thumb"]) ||
+		empty($_POST["content"])) 
 	{
-		header("location:admin/specialpostmanage.php?empty=1010");
+		header("location:admin/sendpost.php?empty=1010");
 		exit;
 	}
 	else
 	{
-		$specialposttitle=$_POST["specialposttitle"];
-		$specialpostthumb=$_POST["specialpostimg"];
-		$specialpostcontent=$_POST["specialpostcontent"];
+		$specialposttitle=$_POST["title"];
+		$specialpostthumb=$_POST["thumb"];
+		$specialpostcontent=$_POST["content"];
 		$specialsendpostsql="INSERT INTO `specialpost` (`id` ,`title` ,`src` ,`content`)VALUES(NULL , '".$specialposttitle."', '".$specialpostthumb."', '".$specialpostcontent."');";
 		$specialsendpostquery=mysqli_query($connect,$specialsendpostsql);
 		if ($specialsendpostquery) 
 		{
-			header("location:admin/specialpostmanage.php?ok=1010");
+			header("location:admin/sendpost.php?ok=1010");
 			exit;
 		}
 		else
 		{
-			header("location:admin/specialpostmanage.php?error=1010");
+			header("location:admin/sendpost.php?error=1010");
 			exit;
 		}
 	}

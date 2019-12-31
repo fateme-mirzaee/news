@@ -19,7 +19,6 @@ if (!isset($_COOKIE["admin"])) {
 <div class="menu">
 	<ul>
 		<li><a href="../index.php">صفحه اصلی</a></li>
-		<li><a href="specialpostmanage.php">مدیریت پست های ویژه</a></li>
 		<li><a href="#">مدیریت پست</a>
 			<ul>
 				<li><a href="sendpost.php">ارسال پست جدید</a></li>

@@ -5,12 +5,12 @@ if (!isset($_COOKIE["admin"])) {
 	exit;
 }
 ?>
-
+<!--menu-->
 	<div class="settBox">
 		<div class="lastpostTitle">
 			<p>مدیریت اجزای منوی بالایی</p>
 		</div><!-- lastpostTitle --> 
-<center>
+
 <?php
 if (isset($_GET["okdelmnu"]))
 			{
@@ -21,12 +21,13 @@ if (isset($_GET["okdelmnu"]))
 			echo "<font color=red>مشکل در حذف</font>";
 			}
 ?>
-             <table border="1">
-                <tr>
-                    <td>عنوان</td>
-                    <td>لینک</td>
-                    <td>حذف</td>
-                </tr>
+		<center>
+             <table border="0">
+			 <tr>
+				<td width="500">عنوان</td>
+				
+				
+			</tr>
                 
 <?php        
 $mnu="SELECT * FROM  `menu` ORDER BY  `id` DESC ;";
@@ -35,28 +36,59 @@ while($mnufetch=mysqli_fetch_assoc($mnuresult))
 {
 ?>
                 <tr>
-                    <td><?php echo $mnufetch["title"]; ?></td>
-                    <td><?php echo $mnufetch["link"]; ?></td>
-                    <td><a href=<?php echo "../check.php?mnuid=".$mnufetch["id"]; ?>>حذف</a></td>
+                    <td ><a href=<?php echo "../seenews.php?postid=$mnufetch[id]" ?> class="text-box"><?php echo $mnufetch["title"]; ?></a></td>
+                    <td class="col-md-3 text-center"><a href=<?php echo "updatePost.php?postid=$mnufetch[id]" ?> class="btn-edit">ویرایش</a></td>
+					<td class="col-md-3 text-center"><a href=<?php echo "../check.php?postid=$mnufetch[id]" ?>   class="btn-remove">حذف</a></td>
+               
+                   
                 </tr>
+			
                 
 <?php
 }
 ?>
 
-             </table>       
-</center>             
+             </table>     
+		</center>
+             
+
+    <div class="settBox">
+		
+        <?php
+		if (isset($_GET["emptytopmnu"]))
+		{
+			echo "<center><font color=red>تمام فیلدها باید پر باشد</font></center>";
+		}
+		if (isset($_GET["oktopmnu"]))
+		{
+			echo "<center><font color=green>اطلاعات با موفقیت ارسال شد</font></center>";
+		}
+		if (isset($_GET["errortopmnu"]))
+		{
+			echo "<center><font color=red>مشکل در ارسال اطلاعات</font></center>";
+		}
+		?>
+			<form method="post" action="../check.php">
+				<label>عنوان</label>
+				<input type="text" name="topmnutitle">
+				<label>لینک</label>
+				<input type="text" name="topmnulink">
+				<input type="submit" name="topmnubtn" value="ارسال اطلاعات">
+			</form>
+	</div><!-- settBox -->
+
+            
     </div><!-- settBox -->
     
     
-
+<!--slider -->
 
 
     <div class="settBox">
 		<div class="lastpostTitle">
 			<p>مدیریت اجزای اسلایدر</p>
 		</div><!-- lastpostTitle -->
-<center>
+
 <?php
 if (isset($_GET["okdelslider"]))
 			{
@@ -67,12 +99,13 @@ if (isset($_GET["okdelslider"]))
 			echo "<font color=red>مشکل در حذف</font>";
 			}
 ?>
-             <table border="1">
-                <tr>
-                    <td>عنوان</td>
-                    <td>لینک</td>
-                    <td>حذف</td>
-                </tr>
+		<center>
+             <table border="0">
+			 <tr>
+				<td width="500">عنوان</td>
+				
+				
+			</tr>
                 
 <?php        
 $slider="SELECT * FROM  `slider` ORDER BY  `id` DESC ;";
@@ -81,28 +114,119 @@ while($sliderfetch=mysqli_fetch_assoc($sliderresult))
 {
 ?>
                 <tr>
-                    <td><?php echo $sliderfetch["src"]; ?></td>
-                    <td><?php echo $sliderfetch["title"]; ?></td>
-                    <td><a href=<?php echo "../check.php?sliderid=".$sliderfetch["id"]; ?>>حذف</a></td>
+                    <td><a href=<?php echo "../seenews.php?postid=$sliderfetch[id]" ?> class="text-box"><?php echo $sliderfetch["title"]; ?></a></td>
+					<td class="col-md-3 text-center"><a href=<?php echo "updatePost.php?postid=$sliderfetch[id]" ?> class="btn-edit">ویرایش</a></td>
+					<td class="col-md-3 text-center"><a href=<?php echo "../check.php?postid=$sliderfetch[id]" ?>   class="btn-remove">حذف</a></td>
+                    
                 </tr>
-                
+               
 <?php
 }
 ?>
 
-             </table>       
-</center>
+             </table>   
+             
+		</center>
+             <div class="settBox">
+		<div class="lastpostTitle">
+		
+             <?php
+		if (isset($_GET["emptyslider"]))
+		{
+			echo "<center><font color=red>تمام فیلدها باید پر باشد</font></center>";
+		}
+		if (isset($_GET["okslider"]))
+		{
+			echo "<center><font color=green>اطلاعات با موفقیت ارسال شد</font></center>";
+		}
+		if (isset($_GET["errorslider"]))
+		{
+			echo "<center><font color=red>مشکل در ارسال اطلاعات</font></center>";
+		}
+		?>
+		</div><!-- lastpostTitle -->
+			<form method="post" action="../check.php">
+				<label>آدرس عکس</label>
+				<input type="text" name="sliderimg" value=<?php  if (isset($_GET["uplod"])) echo $_GET["uplod"] ; else echo '';?>>
+				<label>عنوان عکس</label>
+				<input type="text" name="slidertitle" >
+				<input type="submit" name="sliderbtn" value="ارسال اطلاعات">
+			</form>
+          
+	</div><!-- settBox -->
+
+
+    <!********************************************************************sendpost page end***********************************************>
+<!-- ****************************Trigger/Open The Modal*********************************** -->
+<button id="myBtn" style=" background-color: #555; color: white; padding: 16px 20px; border: none; bottom: 23px; right: 28px; width: 280px;">آپلود تصویر </button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <!*****************************************************************add code most be run in pop up**********************************>
+    <div class="col-12 text-center">
+<div class="uploadBox text-justify">
+<form method="post" enctype="multipart/form-data" >
+	
+	<label for="file">آدرس عکس</label>
+	<input  type="file" name="file">	
+	
+	<input type="submit" name="uploadbtn" value="آپلود">
+	
+</form>
+</div>
+</div><!******************************************************************check upload*****************************************************>
+	<?php
+	if (isset($_POST["uploadbtn"])) 
+	{
+	
+		if (empty($_FILES["file"]["name"])) 
+		{
+			header("location:setting.php?uplod= 'فایلی برای آپلود انتخاب نشد لطفا مجددا سعی کنید '");
+		}
+		else
+		{
+			
+			$filename="../"."thumb/".$_FILES["file"]["name"];
+			$filetmp=$_FILES["file"]["tmp_name"];
+
+			if (is_uploaded_file($filetmp)) 
+			{
+				if(move_uploaded_file($filetmp, $filename))
+				{
+					header("location:setting.php?uplod=thumb/".$_FILES["file"]["name"]);
+					
+				}
+			}
+			else
+			{
+				header("location:setting.php?uplod= 'مشکل در آپلود فایل لطفا مجددا سعی کنید' ");
+			}
+		}
+	}
+	
+?>
+
+	<!******************************************************************check upload end ************************************************>
+  </div>
+
+</div>
+
+
     </div><!-- settBox -->
 
 
 
-
+<!--specialpost-->
 
     <div class="settBox">
 		<div class="lastpostTitle">
 			<p>مدیریت اجزای پست های ویژه</p>
 		</div><!-- lastpostTitle -->
-<center>
+
 <?php
 if (isset($_GET["okdelspecialpost"]))
 			{
@@ -113,34 +237,134 @@ if (isset($_GET["okdelspecialpost"]))
 			echo "<font color=red>مشکل در حذف</font>";
 			}
 ?>
-             <table border="1">
+	<center>
+		<table border="0">
+			<tr>
+				<td width="500">عنوان</td>
+				
+				
+			</tr>
+								
+				<?php        
+				$specialpost="SELECT * FROM  `specialpost` ORDER BY  `id` DESC ;";
+				$specialpostresult=mysqli_query($connect,$specialpost);
+				while($specialpostfetch=mysqli_fetch_assoc($specialpostresult))
+				{
+				?>
                 <tr>
-                    <td>عنوان</td>
-                    <td>آدرس عکس</td>
-                    <td>متن</td>
-                    <td>حذف</td>
+                    <td><a href=<?php echo "../seenews.php?postid=$specialpostfetch[id]" ?> class="text-box"><?php echo $specialpostfetch["title"]; ?></a></td>
+                    <td class="col-md-3 text-center"><a href=<?php echo "updatePost.php?postid=$specialpostfetch[id]" ?> class="btn-edit">ویرایش</a></td>
+					<td class="col-md-3 text-center"><a href=<?php echo "../check.php?postid=$specialpostfetch[id]" ?>   class="btn-remove">حذف</a></td>
+                    
+                    
                 </tr>
+				
+				
                 
-<?php        
-$specialpost="SELECT * FROM  `specialpost` ORDER BY  `id` DESC ;";
-$specialpostresult=mysqli_query($connect,$specialpost);
-while($specialpostfetch=mysqli_fetch_assoc($specialpostresult))
-{
-?>
-                <tr>
-                    <td><?php echo $specialpostfetch["title"]; ?></td>
-                    <td><?php echo $specialpostfetch["src"]; ?></td>
-                    <td><?php echo $specialpostfetch["content"]; ?></td>
-                    <td><a href=<?php echo "../check.php?specialpostid=".$specialpostfetch["id"]; ?>>حذف</a></td>
-                </tr>
-                
-<?php
-}
-?>
+				<?php
+			}
+		?>
 
              </table>       
-</center>  
+ 		</center>
     </div><!-- settBox -->
+<!--managepostbox-->
+	<div class="managepostBox">
+	<div class="lastpostTitle">
+			<p>مدیریت پست های وبسایت</p>
+		</div><!-- lastpostTitle -->
+			<center>
+            <?php
+			# Post Delete
+			if (isset($_GET["okdel"]))
+			{
+			echo "<font color=green>پست با موفقیت پاک شد.</font>";
+			}
+			if (isset($_GET["nodel"]))
+			{
+			echo "<font color=red>مشکل در حذف پست</font>";
+			}
+			# Post Update
+			if (isset($_GET["empty"]))
+			{
+			echo "<font color=red>تمام فیلدها باید پر باشند</font>";
+			}
+			if (isset($_GET["noupdate"]))
+			{
+			echo "<font color=red>مشکل در بروزرسانی اطلاعات</font>";
+			}
+			if (isset($_GET["okupdate"]))
+			{
+			echo "<font color=green>اطلاعات با موفقیت بروزرسانی شد</font>";
+			}
+			?>
+		<table border="0">
+			<tr>
+				<td width="500">عنوان</td>
+			
+			</tr>
+          <?php
+			$posrsql="SELECT * FROM  `post` ORDER BY  `id` DESC ;";
+			$postquery=mysqli_query($connect,$posrsql);
+			while($postfetch=mysqli_fetch_assoc($postquery))
+			{
+				
+			?>
+            
+			<tr>
+				<td><a href=<?php echo "../readmore.php?postid=$postfetch[id]" ?> class="text-box"><?php echo $postfetch["title"]; ?></a></td>
+				<td class="col-md-3 text-center"><a href=<?php echo "updatePost.php?postid=$postfetch[id]" ?> class="btn-edit">ویرایش</a></td>
+				<td class="col-md-3 text-center"><a href=<?php echo "../check.php?postid=$postfetch[id]" ?>   class="btn-remove">حذف</a></td>
+			</tr>
+            <?php
+			}
+			?>
+			
+		</table>
+			</center>
+</div><!-- managepostBox -->
+<!--footer-->
+    <div class="settBox">
+		<div class="lastpostTitle">
+			<p>تنظیمات منوی پایینی</p>
+		</div><!-- lastpostTitle -->
+			<form>
+				<label>عنوان</label>
+				<input type="text" name="bottnmnutitle">
+				<label>لینک</label>
+				<input type="text" name="bottnmnulink">
+				<input type="submit" name="bottommnubtn" value="ارسال اطلاعات">
+			</form>
+	</div><!-- settBox -->
 
+    
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 </body>
+
 </html>

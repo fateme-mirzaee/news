@@ -20,7 +20,7 @@
 
     
        
-    <div class="menu">
+    <div class="menu" >
       
             <ul class="nav justify-content-center">
             <?php

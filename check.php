@@ -150,7 +150,7 @@ else
 			exit;
 		}
 	}
-	#----- Send Special Post
+#----- Send Special Post
 
 if(isset($_POST["sendpostbtn"]) && $_POST["vehicle"] == "specialpost")
 {
@@ -180,12 +180,32 @@ if(isset($_POST["sendpostbtn"]) && $_POST["vehicle"] == "specialpost")
 		}
 	}
 }
-
+#---- Bottom Menu
+	if (isset($_POST["bottommnubtn"]))
+	{
+		if (empty($_POST["bottnmnutitle"])||empty($_POST["bottnmnulink"]))
+		{
+			header("location:admin/setting.php?emptybottnmnu=15859");
+			exit;
+		}
+		$mnu="INSERT INTO `bottemmenu` (`id`, `title`, `link`) VALUES (NULL, '".$_POST["bottnmnutitle"]."', '".$_POST["bottnmnulink"]."'); ";
+		$bottnmnuresult=mysqli_query($connect,$bottnmnu);
+		if($bottnmnuresult)
+		{
+			header("location:admin/setting.php?okbottnmnu=15859");
+			exit;
+		}
+		else
+		{
+			header("location:admin/setting.php?errorbottnmnu=15859");
+			exit;
+		}
+	}
 #------ Menu DELETE
 	if (isset($_GET["mnuid"]))
 	{
-	$postdelid=$_GET["mnuid"];
-	$mnu="DELETE FROM `menu` WHERE `menu`.`id` = $postdelid";
+	$mnudelid=$_GET["mnuid"];
+	$mnu="DELETE FROM `menu` WHERE `menu`.`id` = $mnudelid";
 	$mnuresult=mysqli_query($connect,$mnu);
 	if ($mnuresult)
 	{
@@ -200,7 +220,7 @@ if(isset($_POST["sendpostbtn"]) && $_POST["vehicle"] == "specialpost")
 			
 	}
 	
-	#------ Slider DELETE
+#------ Slider DELETE
 	if (isset($_GET["sliderid"]))
 	{
 	$sliderdelid=$_GET["sliderid"];
@@ -219,7 +239,7 @@ if(isset($_POST["sendpostbtn"]) && $_POST["vehicle"] == "specialpost")
 			
 	}
 	
-	#------ specialpost DELETE
+#------ specialpost DELETE
 	if (isset($_GET["specialpostid"]))
 	{
 	$specialpostdelid=$_GET["specialpostid"];
@@ -236,6 +256,133 @@ if(isset($_POST["sendpostbtn"]) && $_POST["vehicle"] == "specialpost")
 		exit;
 	}
 			
+	}
+	#------ Bottom Menu DELETE
+	if (isset($_GET["bottommnubtn"]))
+	{
+	$bottnmnudelid=$_GET["bottnmnuid"];
+	$bottnmnu="DELETE FROM `bottemmenu` WHERE `bottemmenu`.`id` = $bottnmnudelid";
+	$bottnmnuresult=mysqli_query($connect,$bottnmnu);
+	if ($bottnmnuresult)
+	{
+		header("location:admin/show.php?okdelbottnmnu=1010");
+		exit;
+	}
+	else
+	{
+		header("location:admin/show.php?nodelbottnmnu=1010");
+		exit;
+	}
+			
+	}
+#-------- Menu UPDATE
+	if (isset($_POST["updateheaderbtn"]))
+	{
+		if (empty($_POST["title"]) ||
+		empty($_POST["link"]))
+	{
+		header("location:admin/show.php?empty=1010");
+		exit;
+	}
+	else
+	{
+	$updateheader=$_POST["updateheaderid"];
+	$updateheader="UPDATE `menu` SET `title` = '".$_POST["title"]."', `link` = '".$_POST["link"]."' WHERE `menu`.`id` = $updateheader;";	
+	$updateheaderresult=mysqli_query($connect,$updateheader);
+	if ($updateheaderresult)
+	{
+	header("location:admin/show.php?okupdateheader=1050");
+	exit;
+	}
+	else
+	{
+	header("location:admin/show.php?noupdateheader=1050");
+	exit;
+	}
+	
+	}
+	}
+#-------- Slider UPDATE
+	if (isset($_POST["sliderdelbtn"]))
+	{
+		if (empty($_POST["sliderimg"]) ||
+		empty($_POST["slidertitle"])) 
+	{
+		header("location:admin/show.php?empty=1010");
+		exit;
+	}
+	else
+	{
+	$updateslider=$_POST["updatesliderid"];
+	$updateslider="UPDATE `slider` SET `src` = '".$_POST["sliderimg"]."', `title` = '".$_POST["slidertitle"]."' WHERE `slider`.`id` = $updateslider;";	
+	$updatesliderresult=mysqli_query($connect,$updateslider);
+	if ($updatesliderresult)
+	{
+	header("location:admin/show.php?okupdateslider=1050");
+	exit;
+	}
+	else
+	{
+	header("location:admin/show.php?noupdateslider=1050");
+	exit;
+	}
+	
+	}
+	}
+#-------- specialpost UPDATE
+	if (isset($_POST["updatespecialpostbtn"]))
+	{
+		if (empty($_POST["title"]) ||
+		empty($_POST["thumb"]) ||
+		empty($_POST["content"])) 
+	{
+		header("location:admin/show.php?empty=1010");
+		exit;
+	}
+	else
+	{
+	$updatespecialpost=$_POST["updatespecialpostid"];
+	$updatespecialpost="UPDATE `specialpost` SET `title` = '".$_POST["title"]."', `src` = '".$_POST["thumb"]."', `content` = '".$_POST["content"]."' WHERE `specialpost`.`id` = $updatespecialpost;";	
+	$updatespecialpostresult=mysqli_query($connect,$updatespecialpost);
+	if ($updatespecialpostresult)
+	{
+	header("location:admin/show.php?okupdatespecialpost=1050");
+	exit;
+	}
+	else
+	{
+	header("location:admin/show.php?noupdatespecialpost=1050");
+	exit;
+	}
+	
+	}
+	}
+#-------- Bottom Menu UPDATE
+	if (isset($_POST["updatefooterbtn"]))
+	{
+		if (empty($_POST["title"]) ||
+		empty($_POST["link"])) 
+	{
+		header("location:admin/show.php?empty=1010");
+		exit;
+	}
+	else
+	{
+	$updatefooter=$_POST["updatefooterid"];
+	$updatefooter="UPDATE `bottemmenu` SET `title` = '".$_POST["title"]."', `link` = '".$_POST["link"]."' WHERE `bottemmenu`.`id` = $updatefooter;";	
+	$updatefooterresult=mysqli_query($connect,$updatefooter);
+	if ($updatefooterresult)
+	{
+	header("location:admin/show.php?okupdatefooter=1050");
+	exit;
+	}
+	else
+	{
+	header("location:admin/show.php?noupdatefooter=1050");
+	exit;
+	}
+	
+	}
 	}
 	
 ?>

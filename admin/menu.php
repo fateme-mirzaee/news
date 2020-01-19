@@ -9,6 +9,8 @@ if (!isset($_COOKIE["admin"])) {
 <head>
 	<title>panel</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<script src="ckeditor/ckeditor.js">editor.resize( '100%', '350' );</script>
@@ -19,11 +21,7 @@ if (!isset($_COOKIE["admin"])) {
 <div class="menu">
 	<ul>
 		<li><a href="../index.php">صفحه اصلی</a></li>
-		<li><a href="#">مدیریت پست</a>
-			<ul>
-				<li><a href="sendpost.php">ارسال پست جدید</a></li>
-				<li><a href="postmanage.php">مدیریت پست های قبلی</a></li>
-			</ul>
+		<li><a href="sendpost.php">ارسال پست جدید</a>
 		</li>
 		<!--<li><a href="setting.php">تنظیمات</a></li>-->
         <li><a href="show.php">مدیریت اجزا</a></li>

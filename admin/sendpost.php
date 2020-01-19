@@ -33,10 +33,14 @@ if (isset($_GET["ok"]))
 
 ?>
 
-		<form method="post" action="../check.php">
-			<label>نوع پست </label>
-			<input type="radio" name="vehicle" value="post" checked> خبر<br>
-		    <input type="radio" name="vehicle" value="specialpost" > خبر ویژه<br></tr>
+		<form method="post" action="../check.php" class="col-11 m-auto">
+		<div class="row">
+			<label>نوع پست :</label>
+			<label> خبر<input type="radio" name="vehicle" value="post" checked></label>
+			<label>خبر ویژه<input type="radio" name="vehicle" value="specialpost" > </label>
+			
+		</div>
+		</tr>
 			</tabel>
 			<label>عنوان</label>
 			<input type="text" name="title" >
@@ -45,7 +49,7 @@ if (isset($_GET["ok"]))
 			<label>متن</label>
 			<textarea name="content" class="ckeditor"></textarea>
 			
-			<input type="submit" name="sendpostbtn" value="ارسال اطلاعات" style="background-color:DarkGrey; ">
+			<input type="submit" name="sendpostbtn" value="ارسال اطلاعات" class="btn bg-success font-weight-bolder">
 		</form>
 		
 </div><!-- sendpostBox -->
@@ -53,7 +57,7 @@ if (isset($_GET["ok"]))
 
 <!********************************************************************sendpost page end***********************************************>
 <!-- ****************************Trigger/Open The Modal*********************************** -->
-<button id="myBtn" style=" background-color: #555; color: white; padding: 16px 20px; border: none; bottom: 23px; right: 28px; width: 280px;">آپلود تصویر </button>
+<button id="myBtn" class="btn bg-primary font-weight-bolder text-light px-5 ml-5">آپلود تصویر </button>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">

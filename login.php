@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link href="thumb/412dcaf5ee1a4f17a189f84833385ee7.jpg" rel="icon" type="image"> 
 <html>
 <head>
 	<title>ورود</title>

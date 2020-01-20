@@ -162,7 +162,7 @@
 	
 		if (empty($_FILES["file"]["name"])) 
 		{
-			header("location:setting.php?uplod= 'فایلی برای آپلود انتخاب نشد لطفا مجددا سعی کنید '");
+			echo '<meta http-equiv="refresh" content="0; URL=http://localhost/news/admin/show.php?uplod=فایلی برای آپلود انتخاب نشد لطفا مجددا سعی کنید ">';
 		}
 		else
 		{
@@ -174,13 +174,14 @@
 			{
 				if(move_uploaded_file($filetmp, $filename))
 				{
-					header("location:setting.php?uplod=thumb/".$_FILES["file"]["name"]);
+					echo '<meta http-equiv="refresh" content="0; URL=http://localhost/news/admin/show.php?uplod=thumb/'.$_FILES["file"]["name"].'">';
+					
 					
 				}
 			}
 			else
 			{
-				header("location:setting.php?uplod= 'مشکل در آپلود فایل لطفا مجددا سعی کنید' ");
+				echo '<meta http-equiv="refresh" content="0; URL=http://localhost/news/admin/show.php?uplod=مشکل در آپلود فایل لطفا مجددا سعی کنید">';
 			}
 		}
 	}
@@ -290,66 +291,7 @@
 			</center>
 		</div><!-- managepostBox -->
 <!--footer-->
-    	<div class="settBox">
-			<div class="lastpostTitle">
-				<p>تنظیمات منوی پایینی</p>
-			</div><!-- lastpostTitle -->
-        </div><!-- lastpostTitle -->
-        <?php
-		if (isset($_GET["okdelbottnmnu"]))
-			{
-			echo "<font color=green>با موفقیت پاک شد.</font>";
-			}
-			if (isset($_GET["nodelbottnmnu"]))
-			{
-			echo "<font color=red>مشکل در حذف</font>";
-			}
-		?>
-            <div class="manage m-auto col-11">	
-			<?php        
-				$bottnmnu="SELECT * FROM  `bottemmenu` ORDER BY  `id` DESC ;";
-				$bottnmnuresult=mysqli_query($connect,$bottnmnu);
-				while($bottnmnufetch=mysqli_fetch_assoc($bottnmnuresult))
-				{
-			?>
-                <div class="row">
-					<div class="col-md-5 text-box"><?php echo $bottnmnufetch["title"]; ?></div>
-					<div class="col-md-3 text-center"><a href=<?php echo "update-footer.php?bottnmnuid=$bottnmnufetch[id]" ?> class="btn-edit">ویرایش</a></div>
-					<div class="col-md-3 text-center"><a href=<?php echo "../check.php?bottnmnuid=$bottnmnufetch[id]" ?>   class="btn-remove">حذف</a></div>
-				</div>
-				<?php
-				}
-				?>
-
-			</div>     
-             
-             
-
-    <div class="settBox">
-		
-        <?php
-		if (isset($_GET["emptybottnmnu"]))
-		{
-			echo "<center><font color=red>تمام فیلدها باید پر باشد</font></center>";
-		}
-		if (isset($_GET["okbottnmnu"]))
-		{
-			echo "<center><font color=green>اطلاعات با موفقیت ارسال شد</font></center>";
-		}
-		if (isset($_GET["errorbottnmnu"]))
-		{
-			echo "<center><font color=red>مشکل در ارسال اطلاعات</font></center>";
-		}
-		?>
-			<form method="post" action="../check.php">
-				<label>عنوان</label>
-				<input type="text" name="bottnmnutitle">
-				<label>لینک</label>
-				<input type="text" name="bottnmnulink">
-				<input type="submit" name="bottommnubtn" class="btn bg-success text-light font-weight-bolder" value="ارسال اطلاعات">
-			</form>
-	</div><!-- settBox -->
-
+ 
     
 <script>
 // Get the modal

@@ -113,19 +113,19 @@ else
 	{
 		if (empty($_POST["topmnutitle"])||empty($_POST["topmnulink"]))
 		{
-			header("location:admin/setting.php?emptytopmnu=15859");
+			header("location:admin/show.php?emptytopmnu=15859");
 			exit;
 		}
 		$mnu="INSERT INTO `menu` (`id`, `title`, `link`) VALUES (NULL, '".$_POST["topmnutitle"]."', '".$_POST["topmnulink"]."'); ";
 		$mnuresult=mysqli_query($connect,$mnu);
 		if($mnuresult)
 		{
-			header("location:admin/setting.php?oktopmnu=15859");
+			header("location:admin/show.php?oktopmnu=15859");
 			exit;
 		}
 		else
 		{
-			header("location:admin/setting.php?errortopmnu=15859");
+			header("location:admin/show.php?errortopmnu=15859");
 			exit;
 		}
 	}
@@ -134,19 +134,19 @@ else
 	{
 		if (empty($_POST["sliderimg"])||empty($_POST["slidertitle"]))
 		{
-			header("location:admin/setting.php?emptyslider=15859");
+			header("location:admin/show.php?emptyslider=15859");
 			exit;
 		}
 		$slider="INSERT INTO `slider` (`id`, `src`, `title`) VALUES (NULL, '".$_POST["sliderimg"]."', '".$_POST["slidertitle"]."'); ";
 		$sliderresult=mysqli_query($connect,$slider);
 		if($sliderresult)
 		{
-			header("location:admin/setting.php?okslider=15859");
+			header("location:admin/show.php?okslider=15859");
 			exit;
 		}
 		else
 		{
-			header("location:admin/setting.php?errorslider=15859");
+			header("location:admin/show.php?errorslider=15859");
 			exit;
 		}
 	}
@@ -185,19 +185,19 @@ if(isset($_POST["sendpostbtn"]) && $_POST["vehicle"] == "specialpost")
 	{
 		if (empty($_POST["bottnmnutitle"])||empty($_POST["bottnmnulink"]))
 		{
-			header("location:admin/setting.php?emptybottnmnu=15859");
+			header("location:admin/show.php?emptybottnmnu=15859");
 			exit;
 		}
 		$mnu="INSERT INTO `bottemmenu` (`id`, `title`, `link`) VALUES (NULL, '".$_POST["bottnmnutitle"]."', '".$_POST["bottnmnulink"]."'); ";
 		$bottnmnuresult=mysqli_query($connect,$bottnmnu);
 		if($bottnmnuresult)
 		{
-			header("location:admin/setting.php?okbottnmnu=15859");
+			header("location:admin/show.php?okbottnmnu=15859");
 			exit;
 		}
 		else
 		{
-			header("location:admin/setting.php?errorbottnmnu=15859");
+			header("location:admin/show.php?errorbottnmnu=15859");
 			exit;
 		}
 	}

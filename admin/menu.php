@@ -1,3 +1,4 @@
+<link href="../thumb/412dcaf5ee1a4f17a189f84833385ee7.jpg" rel="icon" type="image"> 
 <?php
 if (!isset($_COOKIE["admin"])) {
 	header("location:../index.php");

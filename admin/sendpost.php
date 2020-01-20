@@ -68,7 +68,7 @@ if (isset($_GET["ok"]))
     <!*****************************************************************add code most be run in pop up**********************************>
     <div class="col-12 text-center">
 <div class="uploadBox text-justify">
-<form method="post" enctype="multipart/form-data" >
+<form method="post" enctype="multipart/form-data"  >
 	
 	<label for="file">آدرس عکس</label>
 	<input  type="file" name="file">	
